@@ -49,14 +49,6 @@ namespace practice
             //s1.InitializeDescription("Hello the word must be initialized with this string");
 
             //Null
-            Vehicle car=null;
-
-
-
-
-
-            Console.ReadKey();
-        }
             //Console.WriteLine("Hello everybody");
 
             //Console.WriteLine("Please enter your name:");
@@ -66,6 +58,16 @@ namespace practice
 
             //overloading obj1 = new overloading();
             //Console.WriteLine(obj1.SingleLine());
+
+            Vehicle car =null;
+
+
+
+
+
+            Console.ReadKey();
+        }
+            
       
     }
 }

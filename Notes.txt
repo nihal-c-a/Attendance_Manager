@@ -132,38 +132,3 @@ static members
 understanding null
 nullable for primitive datatype
 Garbage collection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
