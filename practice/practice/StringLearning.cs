@@ -12,7 +12,7 @@ namespace practice
     {
         public void Example1()
         {
-            // Example string
+            // ListExample string
             string myString = "Hello World";
 
             // 1. Get the length of the string

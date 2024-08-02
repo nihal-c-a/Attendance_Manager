@@ -1,5 +1,8 @@
-﻿using practice.ClassesAndObjects;
+﻿using practice.Array;
+using practice.ClassesAndObjects;
 using practice.Enumeration;
+using practice.lIST;
+using practice.OOPs;
 using practice.Structure;
 using practice.UnderstandingNull;
 using System;
@@ -42,7 +45,7 @@ namespace practice
 
             //examples.learningStringBuilder();
 
-            //Emp EnumEx=new Emp();
+            //Emp EnumEx = new Emp();
             //EnumEx.EnumExample();
 
             //structure s1=new structure();
@@ -59,8 +62,31 @@ namespace practice
             //overloading obj1 = new overloading();
             //Console.WriteLine(obj1.SingleLine());
 
-            Vehicle car =null;
+            //Vehicle car =null;
 
+            //int[] empId = new int[10];
+
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        empId[i] = i;
+            //    }
+
+            //    for (int i = 0; i < 10; i++)
+            //    {
+            //        Console.WriteLine(empId[i]);
+            //    }
+
+            //ArrayExample callexample = new ArrayExample();
+            //callexample.RunArrayInitalize();
+            //callexample.DisplayEmployee();
+            //List<int> l1 = new List<int>();
+
+            //Encapsulation test1 = new Encapsulation();
+            //test1.Pin = 1234;
+            //test1.DisplayPin();
+
+            //Encapsulation e1 = new EncapsulatedChild();
+            //e1.DisplayPin();
 
 
 
