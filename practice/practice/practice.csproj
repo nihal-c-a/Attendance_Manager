@@ -48,6 +48,7 @@
     <Compile Include="ClassesAndObjects\Employee.cs" />
     <Compile Include="collections\LIST\EmployeeList.cs" />
     <Compile Include="Enumeration\Emp.cs" />
+    <Compile Include="ExceptionHandling\CalculationException.cs" />
     <Compile Include="ExceptionHandling\Calculator.cs" />
     <Compile Include="ExceptionHandling\CalculatorMain.cs" />
     <Compile Include="OOPs\Encapsulation.cs" />

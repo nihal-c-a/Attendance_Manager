@@ -88,7 +88,6 @@ namespace practice
 
             //Encapsulation e1 = new EncapsulatedChild();
             //e1.DisplayPin();
-
             CalculatorMain Run =new CalculatorMain();
 
 
