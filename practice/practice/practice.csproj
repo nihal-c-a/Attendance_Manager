@@ -48,8 +48,8 @@
     <Compile Include="ClassesAndObjects\Employee.cs" />
     <Compile Include="collections\LIST\EmployeeList.cs" />
     <Compile Include="Enumeration\Emp.cs" />
-    <Compile Include="Exceptions.cs" />
-    <Compile Include="Files\FileOperation.cs" />
+    <Compile Include="ExceptionHandling\Calculator.cs" />
+    <Compile Include="ExceptionHandling\CalculatorMain.cs" />
     <Compile Include="OOPs\Encapsulation.cs" />
     <Compile Include="overloading.cs" />
     <Compile Include="Program.cs" />

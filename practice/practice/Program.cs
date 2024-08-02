@@ -1,6 +1,7 @@
 ﻿using practice.Array;
 using practice.ClassesAndObjects;
 using practice.Enumeration;
+using practice.ExceptionHandling;
 using practice.lIST;
 using practice.OOPs;
 using practice.Structure;
@@ -87,6 +88,8 @@ namespace practice
 
             //Encapsulation e1 = new EncapsulatedChild();
             //e1.DisplayPin();
+
+            CalculatorMain Run =new CalculatorMain();
 
 
 
