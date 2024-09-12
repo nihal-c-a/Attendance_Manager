@@ -1,0 +1,86 @@
+﻿@model College_Attendance.Models.MarkAttendanceViewModel
+
+@{
+    ViewData["Title"] = "Mark Attendance";
+}
+<div class="sticky-top bg-light p-3 shadow-sm blur-container">
+    <a class="btn btn-light rounded-pill hover-button" asp-controller="Home" asp-action="Index">Back</a>
+    <h2 class="my-4">Mark Attendance</h2>
+</div>
+
+<form asp-action="MarkAttendance" method="post" class="needs-validation" novalidate>
+    <div class="sticky-top bg-light p-3 shadow-sm blur-container">
+        <button type="submit" class="btn btn-primary">Save Attendance</button>
+        <div class="mb-3">
+            <label for="SubjectId" class="form-label">Subject</label>
+            <select asp-for="SubjectId" asp-items="@(new SelectList(Model.Subjects, "SubjectId", "SubjectName"))" class="form-select" required>
+                <option value="">-- Select Subject --</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a subject.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Date" class="form-label">Date</label>
+            <input asp-for="Date" type="date" class="form-control" required />
+            <div class="invalid-feedback">
+                Please select a date.
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <h4 class="mb-3">Students</h4>
+        @if (Model.Students.Any())
+        {
+            <!-- Scrollable table container -->
+            <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                <table class="table table-bordered table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 50px;">Present</th> <!-- Minimal width for checkbox column -->
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Students.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    <input type="checkbox" asp-for="@Model.Students[i].IsPresent" class="form-check-input" />
+                                    <input type="hidden" asp-for="@Model.Students[i].StudentId" />
+                                </td>
+                                <td>@Model.Students[i].StudentName</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <p class="text-muted">No students found.</p>
+        }
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    } else {
+                        alert('Attendance saved');
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script>
+}

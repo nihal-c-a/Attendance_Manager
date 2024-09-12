@@ -1,0 +1,43 @@
+﻿@model IEnumerable<College_Attendance.Models.AttendanceRecordViewModel>
+
+@{
+    ViewData["Title"] = "Edit Attendance";
+}
+
+<h2>Edit Attendance</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Present</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var record in Model)
+        {
+            <tr>
+                <td>@record.StudentName</td>
+                <td>@record.SubjectName</td>
+                <td>
+                    <form asp-action="UpdateAttendance" method="post">
+                        <input type="hidden" name="AttendanceId" value="@record.AttendanceId" />
+
+                        <input type="date" name="Date" value="@record.Date.ToString("yyyy-MM-dd")" class="form-control" required />
+
+                <td>
+                    <input type="checkbox" name="IsPresent" @(record.IsPresent ? "checked" : "") />
+                </td>
+
+                <td>
+                    <button type="submit" class="btn btn-success">Update</button>
+                </td>
+                </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model List<DateTime>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-4">
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 class="text-center mb-4">Welcome to the Attendance System</h1>
+    }
+
+    <h2 class="text-center mb-4">Select a Date to view records </h2>
+
+    <div class="row">
+        @foreach (var date in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@date.ToString("yyyy-MM-dd")</h5>
+                        <a href="@Url.Action("SelectSubjects", "AttendanceEdit", new { date = date })" class="btn btn-primary">
+                            Proceed
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

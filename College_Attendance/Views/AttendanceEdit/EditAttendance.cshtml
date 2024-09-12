@@ -1,0 +1,99 @@
+﻿@model MarkAttendanceViewModel
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">
+                            Edit Attendance for @Model.Date.ToString("yyyy-MM-dd") - Subject: @Model.Subjects[0].SubjectName
+                        </h2>
+                       
+                        <form asp-action="SaveAttendance">
+                            <div class="d-flex justify-content-between mt-4">
+    <a class="btn btn-primary rounded-pill" asp-controller="Home" asp-action="Index">Back</a>
+    <button type="submit" class="btn btn-success rounded-pill">Update</button>
+</div>
+<br />
+                            <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                                <table class="table table-bordered table-hover">
+                            
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th style="width: 50px;">Present</th>
+                                            <th>Student Name</th>
+                                        </tr>
+                                    </thead>
+                                
+                            
+                                    <tbody>
+                                        @for (var i = 0; i < Model.Students.Count; i++)
+                                        {
+                                            <tr>
+                                                <td style="width: 75px;">
+                                                    <input type="checkbox" asp-for="@Model.Students[i].IsPresent" class="form-check-input" />
+                                                    <input type="hidden" asp-for="@Model.Students[i].AttendanceId" />
+                                                    <input type="hidden" asp-for="@Model.Students[i].StudentId" />
+                                                </td>
+                                                <td>@Model.Students[i].StudentName</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <input type="hidden" asp-for="Date" />
+                            <input type="hidden" asp-for="SubjectId" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">
+                            Subject: @Model.Subjects[0].SubjectName | Date:@Model.Date.ToString("yyyy-MM-dd") 
+                        </h2>
+                        <div class="text-lg-start mb-4">
+                            <a class="btn btn-dark rounded-pill" asp-controller="AttendanceEdit" asp-action="ListDates">Back</a>
+                        </div>
+                        <div class="table-responsive mb-4">
+                            <table class="table table-bordered table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 50px;">Present</th>
+                                        <th>Student Name</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                            <table class="table table-bordered table-hover">
+                                <tbody>
+                                    @for (var i = 0; i < Model.Students.Count; i++)
+                                    {
+                                        <tr>
+                                            <td style="width: 75px;">
+                                                <input type="checkbox" asp-for="@Model.Students[i].IsPresent" class="form-check-input" disabled />
+                                            </td>
+                                            <td>@Model.Students[i].StudentName</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

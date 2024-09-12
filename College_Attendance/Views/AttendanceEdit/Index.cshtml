@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Select Date";
+}
+
+<h2>Select Date</h2>
+
+<form asp-action="SelectDate" method="post">
+    <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

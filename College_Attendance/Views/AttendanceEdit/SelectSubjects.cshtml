@@ -1,0 +1,19 @@
+﻿@model MarkAttendanceViewModel
+<a class="btn btn-dark rounded-pill hover-button" asp-controller="Home" asp-action="Index">Back</a>
+<h2>Select a Subject</h2>
+
+<div class="row">
+    @foreach (var subject in Model.Subjects)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@subject.SubjectName</h5>
+                    <a href="@Url.Action("EditAttendance", "AttendanceEdit", new { date = Model.Date, subjectId = subject.SubjectId ,subjectName=subject.SubjectName})" class="btn btn-primary btn-sm">
+                        View
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

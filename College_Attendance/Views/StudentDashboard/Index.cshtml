@@ -1,0 +1,37 @@
+﻿ @model IEnumerable<College_Attendance.Models.StudentDashboardViewModel>
+
+@{
+    ViewData["Title"] = "Student Dashboard";
+}
+
+<h1>Attendance Record</h1>
+@if(Model.Any()){
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+          @foreach(var record in Model){
+        <tr>
+          
+            <td>@record.DateTime.ToString("yyyy-MM-dd")</td>
+            <td>@record.SubjectName</td>
+            <td>@(record.IsPresent ? "Present" : "Absent")</td>
+            
+        </tr>
+          }
+       
+      
+
+       
+    </tbody>
+</table>
+       } else{
+
+           <p class="text-danger">no records found</p>
+       }

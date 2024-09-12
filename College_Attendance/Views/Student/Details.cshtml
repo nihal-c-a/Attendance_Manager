@@ -1,0 +1,40 @@
+﻿@model College_Attendance.Models.Class.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Student Details</h1>
+        </div>
+        <div class="card-body">
+            <h4>Student</h4>
+            <dl class="row">
+                <dt class="col-sm-3">
+                    First Name
+                </dt>
+                <dd class="col-sm-9">
+                    @Model.FirstName
+                </dd>
+                <dt class="col-sm-3">
+                    Last Name
+                </dt>
+                <dd class="col-sm-9">
+                    @Model.LastName
+                </dd>
+                <dt class="col-sm-3">
+                    Email
+                </dt>
+                <dd class="col-sm-9">
+                    @Model.Email
+                </dd>
+            </dl>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Edit" asp-route-id="@Model.StudentId" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

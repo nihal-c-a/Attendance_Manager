@@ -1,0 +1,134 @@
+*Discovering c#
+
+c# is approachable - java and c++
+strongly typed - static
+Resilient and safe-
+object oriented- with functional features
+open source cross platform 
+
+
+*Exploring the managed execution in c#
+C# code is compiled into IL assemblies
+IL is JIT-compiIed at runtime if/when used
+JITed code exhibits native performance
+The CLR ensures runtime type safety
+
+
+*C# Fundamentals
+to write to console -Console.WriteLine(string);
+to read from console- Console.ReadLine();
+Debugging in visual studio
+// double slash to single line comment
+/* multiline comment*/
+Keywords
+int in class using while new null if case ref return lock long string struct const enum void
+CASING CONVENTION
+Namespace	PascalCase
+Class	PascalCase
+Method	PascalCase
+Property	PascalCase
+Local Variable	camelCase
+Parameter	camelCase
+Private Field	camelCase
+Constant	UPPER_CASE
+Static Read-Only Field	UPPER_CASE
+Enum	PascalCase
+Struct	PascalCase
+Enum Value	UPPER_CASE
+
+syntax
+datatypes
+constant
+Strings
+operator
+
+built in members
+INTEGER
+int intMaxValue = int.MaxValue;
+int intMinValue = int.MinValue;
+double doubleMaxValue = double.MaxValue;
+
+char myChar = 'a';
+bool isWhiteSpace = char.IsWhiteSpace(myChar);
+bool isDigit = char.IsDigit(myChar);
+bool isPunctuation = char.IsPunctuation(myChar);
+
+
+working with dates
+
+// Create a DateTime object for March 2, 2025
+DateTime employeeStartDate = new DateTime(2025, 3, 2);
+
+// Get the current date and time
+DateTime today = DateTime.Today;
+
+// Add 2 days to the current date
+DateTime twoDaysLater = today.AddDays(2);
+
+// Get the day of the week for the specified DateTime
+DayOfWeek day = today.DayOfWeek;
+
+// Check if the specified DateTime is in daylight saving time****************************************************
+bool isDST = today.IsDaylightSavingTime();
+
+Datatype conversion
+
+using var
+var months = 12;        // Implicitly typed as int
+var isActive = true;    // Implicitly typed as bool
+var salary = 99.25;     // Implicitly typed as double
+var bonus = 1000;       // Implicitly typed as int
+
+
+if family
+
+switch statements
+int age = 30; // Example age
+
+switch (age)
+{
+    case < 18:
+        Console.WriteLine("Too young to apply");
+        break;
+    case > 65:
+        Console.WriteLine("Sorry, the selected age is too old");
+        break;
+    case 42:
+        Console.WriteLine("Wow, exactly what we are looking for");
+        break;
+    default:
+        Console.WriteLine("Great, you can continue");
+        break;
+}
+
+
+
+Iteration
+for loop
+while loop
+do while loop
+
+
+
+
+
+methods in c#
+
+String manipulation
+escape characters \t\n \\ @
+Parsing the Strings
+
+
+Classes and objects basics
+value types and reference types
+ref keyword
+out keyword
+strings are immutable so we use stringbuilder
+Enumerations- named constants for improved readabilty
+Structures
+
+namespaces
+static members
+understanding null
+nullable for primitive datatype
+Garbage collection

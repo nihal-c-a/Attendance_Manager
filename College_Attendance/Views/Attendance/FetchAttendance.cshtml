@@ -1,0 +1,55 @@
+﻿@model MarkAttendanceViewModel
+
+@{
+    ViewData["Title"] = "Fetch Attendance";
+}
+
+<h2>@ViewData["Title"]</h2>
+<a class="btn btn-light rounded-pill hover-button" asp-controller="Home" asp-action="Index">Back</a>
+<!-- Date-based Attendance Form -->
+<div class="card mb-4">
+    
+
+    <div class="card-body">
+        <form id="attendanceForm" asp-action="FetchAttendance" method="post">
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Date</label>
+                <input asp-for="@Model.Date" type="date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Fetch Attendance</button>
+        </form>
+    </div>
+</div>
+
+<!-- Subject-based Attendance Form -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form id="attendanceForm2" asp-action="FetchAttendanceOnSubject" method="post">
+            <div class="form-group">
+                <label asp-for="SubjectId" class="control-label">Subject</label>
+                <select asp-for="SubjectId" class="form-control" asp-items="@(new SelectList(Model.Subjects, "SubjectId", "SubjectName"))">
+                    <option value="">-- Select Subject --</option>
+                </select>
+                <span asp-validation-for="SubjectId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Fetch Attendance</button>
+        </form>
+    </div>
+</div>
+
+<!-- Student-based Attendance Form -->
+<div class="card">
+    <div class="card-body">
+        <form id="attendanceForm3" asp-action="FetchAttendanceOnStudent" method="post">
+            <div class="form-group">
+                <label asp-for="@Model.Students[0].StudentId" class="control-label">Students</label>
+                <select asp-for="@Model.Students[0].StudentId" class="form-control" asp-items="@(new SelectList(Model.Students, "StudentId", "StudentName"))">
+                    <option value="">-- Select a Student --</option>
+                </select>
+                <span asp-validation-for="@Model.Students[0].StudentId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Fetch Attendance</button>
+        </form>
+    </div>
+</div>

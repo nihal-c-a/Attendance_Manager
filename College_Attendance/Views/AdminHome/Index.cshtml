@@ -1,0 +1,107 @@
+﻿@model College_Attendance.Models.AttendanceSummaryViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<body style=" background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="d-flex flex-column justify-content-center align-items-center ">
+        <div class="text-center mb-4">
+            <h1 class="display-4">Welcome</h1>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Card for Edit Attendance -->
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-primary text-white hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Record Attendance</h5>
+                            <p class="card-text">add attendance for new sessions.</p>
+                            <a class="btn btn-light rounded-pill hover-button" asp-area="" asp-controller="Attendance" asp-action="MarkAttendance">Mark Attendance</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-primary text-white hover-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Edit Attendance</h5>
+                            <p class="card-text"> Based on the Subject,Date or Student</p>
+                            <a class="btn btn-light rounded-pill hover-button" asp-area="" asp-controller="AttendanceEdit" asp-action="ListDates">View Attendance</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <canvas id="averageAttendancePerDayChart"></canvas>
+                </div>
+                <div class="col-md-6">
+                    <canvas id="averageAttendancePerSubjectChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Chart for Average Attendance per Day
+        var ctx1 = document.getElementById('averageAttendancePerDayChart').getContext('2d');
+        var averageAttendancePerDayChart = new Chart(ctx1, {
+            type:"bar",
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+                datasets: [{
+                    label: 'Average Attendance (%)',
+                    data: @Html.Raw(Json.Serialize(Model.AverageAttendancePerDay)),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // Chart for Average Attendance per Subject
+        var ctx2 = document.getElementById('averageAttendancePerSubjectChart').getContext('2d');
+        var averageAttendancePerSubjectChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: @Html.Raw(Json.Serialize(Model.Subjects)),
+                datasets: [{
+                    label: 'Average Attendance (%)',
+                    data: @Html.Raw(Json.Serialize(Model.AverageAttendancePerSubject)),
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+}

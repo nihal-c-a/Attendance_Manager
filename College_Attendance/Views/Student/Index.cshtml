@@ -1,0 +1,33 @@
+﻿@model IEnumerable<College_Attendance.Models.Class.Student>
+
+@{
+    ViewData["Title"] = "Student List";
+}
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Student List</h1>
+        </div>
+        <div class="card-body">
+            <a asp-action="Create" class="btn btn-primary btn-sm mb-3">Add New Student</a>
+            <div class="row">
+                @foreach (var student in Model)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@student.FirstName @student.LastName</h5>
+                             
+                                <p class="card-text">Email: @student.Email</p>
+                                <a asp-action="Edit" asp-route-id="@student.StudentId" class="btn btn-outline-primary btn-sm">Edit</a>
+                                <a asp-action="Details" asp-route-id="@student.StudentId" class="btn btn-outline-primary btn-sm">View</a>
+                                <a asp-action="Delete" asp-route-id="@student.StudentId" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
